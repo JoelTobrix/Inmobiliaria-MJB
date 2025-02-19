@@ -1,0 +1,7 @@
+{
+  "name": "Inmobiliaria-MJB",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
