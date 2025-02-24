@@ -15,7 +15,7 @@ export class RegistroPage implements OnInit {
   pass_password:string="";
   txt_correo:string="";
   txt_descripcion:string="";
-  activo: boolean = false; // Valor inicial: desmarcado
+  activo: boolean = false; 
 
   ngOnInit() {
   }
