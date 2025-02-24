@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registro de Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-label>Usuario:</ion-label>
+  <ion-input type="text"[(ngModel)]="txt_usuario"></ion-input>
+  <ion-label>Nombre:</ion-label>
+  <ion-input type="text"[(ngModel)]="txt_nombre"></ion-input>
+  <ion-label>Contraseña:</ion-label>
+  <ion-input type="password"[(ngModel)]="pass_password"></ion-input>
+  <ion-label>Correo Electronico:</ion-label>
+  <ion-input type="email"[(ngModel)]="txt_correo"></ion-input>
+  <ion-label>Descripcion:</ion-label>
+  <ion-input type="text"[(ngModel)]="txt_descripcion"></ion-input>
+  <ion-label>Activo:</ion-label>
+  <ion-checkbox></ion-checkbox>
+</ion-content>

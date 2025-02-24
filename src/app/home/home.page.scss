@@ -25,3 +25,20 @@
 #container a {
   text-decoration: none;
 }
+.login-card {
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.center-image{
+  display: block;
+  margin: auto;
+}
+
+

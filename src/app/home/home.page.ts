@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { RegistroPage } from '../registro/registro.page';
+
 
 @Component({
   selector: 'app-home',
@@ -7,7 +10,15 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class HomePage {
+txt_usuario:string="";
+pass_password:string="";
 
-  constructor() {}
+  constructor(private modalCtrl: ModalController) {}
+  async registro(){
+    const modal= await this.modalCtrl.create({
+      component: RegistroPage
+    }); return await modal.present();
+  }
+
 
 }
