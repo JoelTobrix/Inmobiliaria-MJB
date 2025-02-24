@@ -14,6 +14,14 @@ txt_usuario:string="";
 pass_password:string="";
 
   constructor(private modalCtrl: ModalController) {}
+
+  EliminarCasillas(){
+    this.txt_usuario="";
+    this.pass_password="";
+  }
+
+
+
   async registro(){
     const modal= await this.modalCtrl.create({
       component: RegistroPage

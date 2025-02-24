@@ -22,7 +22,7 @@
       <ion-label>Contraseña</ion-label>
       <ion-input type="password"[(ngModel)]="pass_password"></ion-input>
        <ion-button fill="outline">Aceptar</ion-button>
-      <ion-button fill="outline">Cancelar</ion-button>
+      <ion-button fill="outline" (click)="EliminarCasillas()">Cancelar</ion-button>
       <ion-button fill="outline" (click)="registro()">Registro</ion-button>
     
   </ion-card>
