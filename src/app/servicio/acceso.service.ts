@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ToastController } from '@ionic/angular';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccesoService {
-  private apiUrl = "http://localhost/Inmobiliaria/usuarios.php"; // API
+  private apiUrl = "http://localhost/Inmobiliaria/usuarios.php"; // API correcta
 
   constructor(private http: HttpClient, private toastController: ToastController) {}
 
   // Método para enviar datos al backend
   postData(datos: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/registro.php`, datos);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<any>(this.apiUrl, JSON.stringify(datos), { headers });
   }
 
   // Método para mostrar mensajes emergentes (toasts)

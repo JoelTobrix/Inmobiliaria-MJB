@@ -12,18 +12,18 @@
    
   <ion-label>Contraseña:</ion-label>
   <ion-input type="password" [(ngModel)]="pass_password" (ionInput)="calcularFuerzaClave()"></ion-input>
-  
+  <ion-item>
   <ion-range [min]="0" [max]="100" [value]="passwordStrength" disabled
     [color]="passwordStrength < 40 ? 'danger' : passwordStrength < 70 ? 'warning' : 'success'">
   </ion-range>
   <ion-text [color]="passwordStrength < 40 ? 'danger' : passwordStrength < 70 ? 'warning' : 'success'">
     {{ getPasswordStrengthLabel() }}
   </ion-text>
-  
+  </ion-item>
 
 
 
-  <ion-label>Correo Electronico:</ion-label>
+  <ion-label class=>Correo Electronico:</ion-label>
   <ion-input type="email"[(ngModel)]="txt_correo"></ion-input>
   <ion-label>Descripcion:</ion-label>
   <ion-input type="text"[(ngModel)]="txt_descripcion"></ion-input>

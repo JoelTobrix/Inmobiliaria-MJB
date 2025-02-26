@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 26-02-2025 a las 00:41:29
+-- Tiempo de generación: 26-02-2025 a las 18:27:22
 -- Versión del servidor: 5.7.24
--- Versión de PHP: 7.4.1
+-- Versión de PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -55,11 +55,19 @@ CREATE TABLE `userroltable` (
 CREATE TABLE `usertable` (
   `IdUsuario` char(36) NOT NULL,
   `NombreUsuario` varchar(100) NOT NULL,
+  `Nombre` varchar(100) NOT NULL,
   `Descripcion` varchar(200) DEFAULT NULL,
-  `Contraseña` varchar(50) NOT NULL,
+  `Contraseña` varchar(100) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Active` tinyint(1) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usertable`
+--
+
+INSERT INTO `usertable` (`IdUsuario`, `NombreUsuario`, `Nombre`, `Descripcion`, `Contraseña`, `Email`, `Active`) VALUES
+('074b49dc-f5b7-4404-a4a5-f3885b6e5830', 'admin1', 'Fabricio', 'administrador', '$2y$10$3Tg1p0DAe2qqYwjlMNFf3.z5.A5cSq3YluT4hYVig8Y5nrGjjgbEy', 'febri145@gmail.com', 0);
 
 --
 -- Índices para tablas volcadas
