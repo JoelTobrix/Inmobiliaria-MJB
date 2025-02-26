@@ -9,8 +9,20 @@
   <ion-input type="text"[(ngModel)]="txt_usuario"></ion-input>
   <ion-label>Nombre:</ion-label>
   <ion-input type="text"[(ngModel)]="txt_nombre"></ion-input>
+   
   <ion-label>Contraseña:</ion-label>
-  <ion-input type="password"[(ngModel)]="pass_password"></ion-input>
+  <ion-input type="password" [(ngModel)]="pass_password" (ionInput)="calcularFuerzaClave()"></ion-input>
+  
+  <ion-range [min]="0" [max]="100" [value]="passwordStrength" disabled
+    [color]="passwordStrength < 40 ? 'danger' : passwordStrength < 70 ? 'warning' : 'success'">
+  </ion-range>
+  <ion-text [color]="passwordStrength < 40 ? 'danger' : passwordStrength < 70 ? 'warning' : 'success'">
+    {{ getPasswordStrengthLabel() }}
+  </ion-text>
+  
+
+
+
   <ion-label>Correo Electronico:</ion-label>
   <ion-input type="email"[(ngModel)]="txt_correo"></ion-input>
   <ion-label>Descripcion:</ion-label>
@@ -19,7 +31,7 @@
   <ion-checkbox></ion-checkbox>
   
     <div class="button-container">
-    <ion-button fill="outline">Registrar usuario</ion-button>
+    <ion-button fill="outline" (click)="Registrar()">Registrar usuario</ion-button>
     <ion-button fill="outline">Nuevo registro </ion-button>
     </div>
    
