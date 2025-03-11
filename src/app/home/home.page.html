@@ -17,11 +17,14 @@
       <ion-card-title class="ion-text-center">Iniciar sesion</ion-card-title>
     </ion-card-header>
     
-      <ion-label>Usuario:</ion-label>
-      <ion-input type="text"[(ngModel)]="txt_usuario"></ion-input>
-      <ion-label>Contraseña</ion-label>
-      <ion-input type="password"[(ngModel)]="pass_password"></ion-input>
-       <ion-button fill="outline">Aceptar</ion-button>
+    <ion-label>Usuario:</ion-label>
+    <ion-input type="text" [(ngModel)]="txt_usuario"></ion-input>
+    
+    <ion-label>Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="pass_password"></ion-input>
+    
+    <ion-button fill="outline" (click)="login()">Aceptar</ion-button>
+
       <ion-button fill="outline" (click)="EliminarCasillas()">Cancelar</ion-button>
       <ion-button fill="outline" (click)="registro()">Registro</ion-button>
     
