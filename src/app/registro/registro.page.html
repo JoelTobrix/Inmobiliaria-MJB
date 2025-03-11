@@ -1,39 +1,43 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Registro de Usuario</ion-title>
+      <ion-title>Registro de Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-label>Usuario:</ion-label>
-  <ion-input type="text"[(ngModel)]="txt_usuario"></ion-input>
+  <ion-input type="text" [(ngModel)]="txt_usuario"></ion-input>
   <ion-label>Nombre:</ion-label>
-  <ion-input type="text"[(ngModel)]="txt_nombre"></ion-input>
-   
+  <ion-input type="text" [(ngModel)]="txt_nombre"></ion-input>
+
   <ion-label>Contraseña:</ion-label>
   <ion-input type="password" [(ngModel)]="pass_password" (ionInput)="calcularFuerzaClave()"></ion-input>
   <ion-item>
-  <ion-range [min]="0" [max]="100" [value]="passwordStrength" disabled
-    [color]="passwordStrength < 40 ? 'danger' : passwordStrength < 70 ? 'warning' : 'success'">
-  </ion-range>
-  <ion-text [color]="passwordStrength < 40 ? 'danger' : passwordStrength < 70 ? 'warning' : 'success'">
-    {{ getPasswordStrengthLabel() }}
-  </ion-text>
+      <ion-range [min]="0" [max]="100" [value]="passwordStrength" disabled
+          [color]="passwordStrength < 40 ? 'danger' : passwordStrength < 70 ? 'warning' : 'success'">
+      </ion-range>
+      <ion-text [color]="passwordStrength < 40 ? 'danger' : passwordStrength < 70 ? 'warning' : 'success'">
+          {{ getPasswordStrengthLabel() }}
+      </ion-text>
   </ion-item>
 
-
-
   <ion-label class=>Correo Electronico:</ion-label>
-  <ion-input type="email"[(ngModel)]="txt_correo"></ion-input>
+  <ion-input type="email" [(ngModel)]="txt_correo"></ion-input>
   <ion-label>Descripcion:</ion-label>
-  <ion-input type="text"[(ngModel)]="txt_descripcion"></ion-input>
+  <ion-input type="text" [(ngModel)]="txt_descripcion"></ion-input>
   <ion-label>Activo:</ion-label>
-  <ion-checkbox></ion-checkbox>
-  
-    <div class="button-container">
-    <ion-button fill="outline" (click)="Registrar()">Registrar usuario</ion-button>
-    <ion-button fill="outline">Nuevo registro </ion-button>
-    </div>
-   
-      
+  <ion-checkbox [(ngModel)]="isActivo"></ion-checkbox>
+
+
+  <ion-item>
+    <ion-label>Rol:</ion-label>
+    <ion-select [(ngModel)]="selectedRoleId">
+      <ion-select-option *ngFor="let rol of roles" [value]="rol.RollId">{{ rol.RoleNombre }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <div class="button-container">
+      <ion-button fill="outline" (click)="Registrar()">Registrar usuario</ion-button>
+      <ion-button fill="outline">Ver Roles</ion-button>
+  </div>
 </ion-content>

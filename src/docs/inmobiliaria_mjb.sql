@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 26-02-2025 a las 18:27:22
+-- Tiempo de generación: 10-03-2025 a las 22:48:49
 -- Versión del servidor: 5.7.24
--- Versión de PHP: 7.3.7
+-- Versión de PHP: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -35,6 +35,14 @@ CREATE TABLE `roles` (
   `RoleNombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`RollId`, `RoleNombre`) VALUES
+('', 'administrador'),
+('2', 'vendedor');
+
 -- --------------------------------------------------------
 
 --
@@ -45,6 +53,13 @@ CREATE TABLE `userroltable` (
   `RollId` char(36) NOT NULL,
   `idUsuario` char(36) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `userroltable`
+--
+
+INSERT INTO `userroltable` (`RollId`, `idUsuario`) VALUES
+('', 'fbe6d723-a624-4c7a-8eef-25b7ef271295');
 
 -- --------------------------------------------------------
 
@@ -67,7 +82,9 @@ CREATE TABLE `usertable` (
 --
 
 INSERT INTO `usertable` (`IdUsuario`, `NombreUsuario`, `Nombre`, `Descripcion`, `Contraseña`, `Email`, `Active`) VALUES
-('074b49dc-f5b7-4404-a4a5-f3885b6e5830', 'admin1', 'Fabricio', 'administrador', '$2y$10$3Tg1p0DAe2qqYwjlMNFf3.z5.A5cSq3YluT4hYVig8Y5nrGjjgbEy', 'febri145@gmail.com', 0);
+('074b49dc-f5b7-4404-a4a5-f3885b6e5830', 'admin1', 'Fabricio', 'administrador', '$2y$10$3Tg1p0DAe2qqYwjlMNFf3.z5.A5cSq3YluT4hYVig8Y5nrGjjgbEy', 'febri145@gmail.com', 0),
+('85266aa5-f262-4261-a883-446660c22cf3', 'admin2', 'Maria', 'vendedora', '$2y$10$/FPk56.gQuNzoujX8fvJHuNXZXOM3PqIOsllG8EqHXruUS2xal2.u', 'meri33@gmail.com', 0),
+('fbe6d723-a624-4c7a-8eef-25b7ef271295', 'cliente', 'Alejandra', 'Compradora', '$2y$10$Vr4UF2qXNGhZ2iHQ6rZLsuFyd89lITEudEkSVQxidLSPY2zuABTWW', 'alej123@gmail.com', 1);
 
 --
 -- Índices para tablas volcadas

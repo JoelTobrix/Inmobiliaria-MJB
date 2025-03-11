@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 // Obtener los datos enviados en la petición
 $data = json_decode(file_get_contents("php://input"), true);
 
-if (!$data || !isset( $data['IdUsuario'],$data['usuario'], $data['nombre'], $data['descripcion'], $data['pass'], $data['correo'], $data['activo'])) {
+if (!$data || !isset($data['IdUsuario'], $data['usuario'], $data['nombre'], $data['descripcion'], $data['pass'], $data['correo'], $data['activo'], $data['RollId'])) {
     echo json_encode(["estado" => false, "mensaje" => "Faltan datos en la solicitud"]);
     exit;
 }
@@ -25,16 +25,25 @@ $nombre = $conn->real_escape_string($data['nombre']);
 $descripcion = $conn->real_escape_string($data['descripcion']);
 $pass = password_hash($data['pass'], PASSWORD_DEFAULT);
 $correo = $conn->real_escape_string($data['correo']);
-$activo = filter_var($data['activo'], FILTER_VALIDATE_BOOLEAN) ? 1 : 0;
+$activo = ($data['activo'] == 1 || $data['activo'] == 'true') ? 1 : 0;
+$RollId = $conn->real_escape_string($data['RollId']);
 
 // Insertar datos en la base de datos
-$sql = "INSERT INTO usertable (IdUsuario,NombreUsuario, Nombre, Descripcion, Contraseña, Email, Active) 
-        VALUES ('$idUsuario','$usuario', '$nombre', '$descripcion', '$pass', '$correo', '$activo')";
+$sql_user = "INSERT INTO usertable (IdUsuario, NombreUsuario, Nombre, Descripcion, Contraseña, Email, Active) 
+             VALUES ('$idUsuario', '$usuario', '$nombre', '$descripcion', '$pass', '$correo', '$activo')";
 
-if ($conn->query($sql) === TRUE) {
-    echo json_encode(["estado" => true, "mensaje" => "Usuario registrado con éxito"]);
+if ($conn->query($sql_user) === TRUE) {
+    // Insertar rol en userroltable
+    $sql_role = "INSERT INTO userroltable (RollId, idUsuario) VALUES ('$RollId', '$idUsuario')";
+    if ($conn->query($sql_role) === TRUE) {
+        echo json_encode(["estado" => true, "mensaje" => "Usuario registrado con éxito y rol asignado"]);
+    } else {
+        // Si falla la asignación del rol, puedes optar por eliminar el usuario recién creado
+        $conn->query("DELETE FROM usertable WHERE IdUsuario = '$idUsuario'");
+        echo json_encode(["estado" => false, "mensaje" => "Error al asignar rol: " . $conn->error]);
+    }
 } else {
-    echo json_encode(["estado" => false, "mensaje" => "Error: " . $conn->error]);
+    echo json_encode(["estado" => false, "mensaje" => "Error al registrar usuario: " . $conn->error]);
 }
 
 $conn->close();

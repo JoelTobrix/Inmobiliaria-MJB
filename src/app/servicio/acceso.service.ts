@@ -27,4 +27,7 @@ export class AccesoService {
     });
     await toast.present();
   }
+  getRoles(): Observable<any> {
+    return this.http.get<any>("http://localhost/Inmobiliaria/roles.php");
+  }
 }

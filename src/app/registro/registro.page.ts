@@ -18,9 +18,24 @@ export class RegistroPage implements OnInit {
   txt_correo:string="";
   txt_descripcion:string="";
   activo: boolean = false; 
+  selectedRoleId: string = ''; //Selector Roles
+  roles: any[] = []; // Array para almacenar los roles
 
   ngOnInit() {
+    this.cargarRoles();
   }
+  cargarRoles() {
+    this.servicio.getRoles().subscribe((res: any) => {
+      if (res.estado) {
+        this.roles = res.roles;
+      } else {
+        this.servicio.showToast("Error al cargar los roles", 3000);
+      }
+    }, error => {
+      this.servicio.showToast("Error en la conexión", 3000);
+    });
+  }
+
   Registrar(){
     if(this.txt_usuario && this.txt_nombre && this.pass_password && this.txt_correo && this.txt_descripcion){
       let datos = {
@@ -30,7 +45,8 @@ export class RegistroPage implements OnInit {
         pass: this.pass_password,
         correo: this.txt_correo,
         descripcion: this.txt_descripcion,
-        activo: this.activo ? 1 : 0 // Convertir a 0 o 1
+        activo: this.activo ? 1 : 0, // Convertir a 0 o 1
+        RollId: this.selectedRoleId
       };
   
       this.servicio.postData(datos).subscribe((res: any) => {
@@ -67,7 +83,9 @@ getPasswordStrengthLabel(): string {
   if (this.passwordStrength < 80) return "Alta";
   return "Alta";
 }
-
+isActivo(){
+  
+}
 
 
 }
