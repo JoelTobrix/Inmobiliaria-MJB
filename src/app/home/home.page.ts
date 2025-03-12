@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { RegistroPage } from '../registro/registro.page';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,8 +15,9 @@ export class HomePage {
 txt_usuario:string="";
 pass_password:string="";
   
+  
 
-  constructor(private modalCtrl: ModalController, private http: HttpClient) {}
+  constructor(private modalCtrl: ModalController, private http: HttpClient, private router: Router) {}
 
   EliminarCasillas(){
     this.txt_usuario="";
@@ -41,6 +43,7 @@ pass_password:string="";
         console.log('Respuesta del servidor:', response);
         if (response.success) {
           alert('Bienvenido ' + this.txt_usuario);
+          this.router.navigate(['/inmobiliaria']); //Direccion a la pagina inmobiliaria
         } else {
           alert('Error: ' + response.message);
         }
@@ -52,6 +55,5 @@ pass_password:string="";
     );
   }
 }
-  
 
 
