@@ -86,6 +86,8 @@ getPasswordStrengthLabel(): string {
 isActivo(){
   
 }
-
+closeModal(){
+  this.modalCtrl.dismiss();
+}
 
 }

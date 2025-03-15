@@ -12,5 +12,7 @@
     <ion-label>Contraseña:</ion-label>
     <ion-input type="password"[(ngModel)]="pass"></ion-input>
     <!--Boton Ingresar-->
-       <ion-button fill="clear" size="small" color="medium" fill="clear" class="center-button">Ingresar</ion-button>
+       <ion-button fill="clear" size="small" color="medium" fill="clear" class="center-button" (click)="LogAdmin()">Ingresar</ion-button>
+       <ion-button fill="clear" size="small" color="medium" class="center-button" (click)="cerrarModal()">Cerrar</ion-button>
+
 </ion-content>

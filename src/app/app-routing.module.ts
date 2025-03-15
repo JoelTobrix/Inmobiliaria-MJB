@@ -10,7 +10,8 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   },
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
+  },
+  {
+    path: 'inmobiliariaAdmin',
+    loadChildren: () => import('./inmobiliariaAdmin/inmobiliaria-admin.module').then( m => m.InmobiliariaAdminPageModule)
   },
 
 ];
