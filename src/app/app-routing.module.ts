@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'inmobiliaria',
     loadChildren: () => import('./inmobiliaria/inmobiliaria.module').then( m => m.InmobiliariaPageModule)
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
+  },
 
 ];
 

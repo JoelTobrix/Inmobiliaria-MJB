@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { RegistroPage } from '../registro/registro.page';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AdminPage } from '../admin/admin.page';
 
 
 @Component({
@@ -24,7 +25,11 @@ pass_password:string="";
     this.pass_password="";
   }
 
-
+  async ingresarAdmin(){
+    const modal=await this.modalCtrl.create({
+    component: AdminPage
+    }); return await modal.present();
+  }
 
   async registro(){
     const modal= await this.modalCtrl.create({

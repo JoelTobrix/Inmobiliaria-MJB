@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  
+  <ion-title>Administrador</ion-title>
+  <img src="../assets/icon/logo.png" weight="50px" height="50px">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <!--Correo, email-->
+    <ion-label>Correo Electronico:</ion-label>
+    <ion-input type="email" [(ngModel)]="email_correo"></ion-input>
+    <!--Password-->
+    <ion-label>Contraseña:</ion-label>
+    <ion-input type="password"[(ngModel)]="pass"></ion-input>
+    <!--Boton Ingresar-->
+       <ion-button fill="clear" size="small" color="medium" fill="clear" class="center-button">Ingresar</ion-button>
+</ion-content>
