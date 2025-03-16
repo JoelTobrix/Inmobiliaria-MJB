@@ -42,6 +42,9 @@ export class AdminPage implements OnInit {
         alert('No se pudo conectar con el servidor');
       }
     );
+    this.email_correo="";
+    this.pass="";
+    
   }
   }
 

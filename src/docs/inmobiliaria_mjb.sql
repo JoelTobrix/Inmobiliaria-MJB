@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 10-03-2025 a las 22:48:49
+-- Tiempo de generación: 16-03-2025 a las 11:56:15
 -- Versión del servidor: 5.7.24
 -- Versión de PHP: 7.4.1
 
@@ -27,6 +27,21 @@ USE `inmobiliaria_mjb`;
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `propiedades`
+--
+
+CREATE TABLE `propiedades` (
+  `idPropiedad` char(36) NOT NULL,
+  `titulo` varchar(50) NOT NULL,
+  `precio` decimal(10,2) NOT NULL,
+  `ubicacion` varchar(100) NOT NULL,
+  `imagen` varchar(100) NOT NULL,
+  `idUsuario` char(36) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `roles`
 --
 
@@ -41,6 +56,7 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`RollId`, `RoleNombre`) VALUES
 ('', 'administrador'),
+('3', 'cliente'),
 ('2', 'vendedor');
 
 -- --------------------------------------------------------
@@ -59,7 +75,8 @@ CREATE TABLE `userroltable` (
 --
 
 INSERT INTO `userroltable` (`RollId`, `idUsuario`) VALUES
-('', 'fbe6d723-a624-4c7a-8eef-25b7ef271295');
+('', '873fed15-1c68-4296-abee-ae58279bbd7d'),
+('3', 'be9cacb1-0d27-4943-8336-d5eccdc6e2ad');
 
 -- --------------------------------------------------------
 
@@ -82,13 +99,20 @@ CREATE TABLE `usertable` (
 --
 
 INSERT INTO `usertable` (`IdUsuario`, `NombreUsuario`, `Nombre`, `Descripcion`, `Contraseña`, `Email`, `Active`) VALUES
-('074b49dc-f5b7-4404-a4a5-f3885b6e5830', 'admin1', 'Fabricio', 'administrador', '$2y$10$3Tg1p0DAe2qqYwjlMNFf3.z5.A5cSq3YluT4hYVig8Y5nrGjjgbEy', 'febri145@gmail.com', 0),
-('85266aa5-f262-4261-a883-446660c22cf3', 'admin2', 'Maria', 'vendedora', '$2y$10$/FPk56.gQuNzoujX8fvJHuNXZXOM3PqIOsllG8EqHXruUS2xal2.u', 'meri33@gmail.com', 0),
-('fbe6d723-a624-4c7a-8eef-25b7ef271295', 'cliente', 'Alejandra', 'Compradora', '$2y$10$Vr4UF2qXNGhZ2iHQ6rZLsuFyd89lITEudEkSVQxidLSPY2zuABTWW', 'alej123@gmail.com', 1);
+('873fed15-1c68-4296-abee-ae58279bbd7d', 'admin', 'Pablo', 'administrar propiedades', '$2y$10$K1Vc6DWKcm1AwgmtrIiUbO1Ed6TwBa/mT5gMk1TGJnERrbWmrIJmK', 'pablofrancis1997@hotmail.com', 1),
+('a7ba6437-7cb0-4ce0-99b5-d6fa798fbda8', 'vents', 'Pamela', 'Compradora', '$2y$10$sYIYRPXw0l4Gwctf4jLan.OAgUkmc1mORO3Mibsvj86klHs6qMKiK', 'pamocapana1235@gmail.com', 1),
+('be9cacb1-0d27-4943-8336-d5eccdc6e2ad', 'Pam', 'Pamela', 'Hola', '$2y$10$O8UPwT1UHtl.8JAV9oFseuz98fQqlE3VCVq7nlw4cL3GKtGPDb2Bm', 'pansito007@gmail.com', 1);
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `propiedades`
+--
+ALTER TABLE `propiedades`
+  ADD PRIMARY KEY (`idPropiedad`),
+  ADD KEY `idUsuario` (`idUsuario`);
 
 --
 -- Indices de la tabla `roles`
@@ -114,6 +138,12 @@ ALTER TABLE `usertable`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `propiedades`
+--
+ALTER TABLE `propiedades`
+  ADD CONSTRAINT `propiedades_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usertable` (`IdUsuario`);
 
 --
 -- Filtros para la tabla `userroltable`
