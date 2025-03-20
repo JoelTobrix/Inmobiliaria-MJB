@@ -1,13 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>inmobiliaria_admin</ion-title>
+    <ion-title>inmobiliaria seccion Administrador</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">inmobiliaria_admin</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!--Atributos-->
+  <ion-label>Tipo de propiedad</ion-label>
+  <ion-input type="text" [(ngModel)]="type_propetie"></ion-input>
+
+  <ion-label>precio</ion-label>
+  <ion-input type="number" step="any" [(ngModel)]="price"></ion-input>
+
+  <ion-label>Ubicacion</ion-label>
+  <ion-input type="text" [(ngModel)]="location"></ion-input>
+
+  <ion-label>Imagen</ion-label>
+  <ion-item>
+  <input type="file" accept="image/*" (change)="onImageSelected($event)" style="color:black" />
+  </ion-item>
+
+  <ion-button expand="block">Guardar propiedad</ion-button>
+  <ion-button expand="block"> Eliminar informacion</ion-button>
+  <ion-button expand="block">Eliminar propiedad</ion-button>
+
+
 </ion-content>

@@ -7,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   standalone: false,
 })
 export class InmobiliariaAdminPage implements OnInit {
+  type_propetie: string="";
+  price: string="";
+  location: string="";
 
   constructor() { }
 
   ngOnInit() {
   }
+  onImageSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      console.log("Imagen seleccionada:", file);
+      // Aquí puedes manejar la imagen, como mostrarla o subirla a un servidor.
+    }
+  }
+  
 
 }
