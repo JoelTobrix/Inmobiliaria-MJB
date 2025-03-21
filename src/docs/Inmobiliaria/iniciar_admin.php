@@ -18,12 +18,12 @@ if (isset($data->correo) && isset($data->contrasenia)) {
     $correo = $conn->real_escape_string($data->correo);
     $contrasenia = $data->contrasenia;
 
-    // Consulta a la base de datos para verificar el rol de administrador
-    $SQL = "SELECT u.Contraseña, r.RoleNombre 
-            FROM usertable u
-            JOIN userroltable ur ON u.IdUsuario = ur.IdUsuario
-            JOIN roles r ON ur.RollId = r.RollId
-            WHERE u.Email = ? AND r.RoleNombre = 'administrador'";
+    // Consulta a la base de datos para verificar el rol de administrador y obtener idUsuario
+    $SQL = "SELECT u.IdUsuario, u.Contraseña, r.RoleNombre 
+                FROM usertable u
+                JOIN userroltable ur ON u.IdUsuario = ur.IdUsuario
+                JOIN roles r ON ur.RollId = r.RollId
+                WHERE u.Email = ? AND r.RoleNombre = 'administrador'";
     
     $stmt = $conn->prepare($SQL);
     $stmt->bind_param("s", $correo);
@@ -33,7 +33,8 @@ if (isset($data->correo) && isset($data->contrasenia)) {
     if ($row = $result->fetch_assoc()) {
         // Verificar contraseña
         if (password_verify($contrasenia, $row['Contraseña'])) {
-            echo json_encode(["success" => true, "message" => "Inicio de sesión exitoso"]);
+            // Incluir idUsuario en la respuesta JSON
+            echo json_encode(["success" => true, "message" => "Inicio de sesión exitoso", "idUsuario" => $row['IdUsuario']]);
         } else {
             echo json_encode(["success" => false, "message" => "Contraseña incorrecta"]);
         }
