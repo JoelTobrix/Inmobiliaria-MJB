@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http'; 
-import { Router } from '@angular/router'; 
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.page.html',
@@ -9,19 +10,19 @@ import { Router } from '@angular/router';
   standalone: false,
 })
 export class AdminPage implements OnInit {
-  email_correo: string="";
-  pass: string="";
-  
+  email_correo: string = "";
+  pass: string = "";
+
   constructor(private modalCtrl: ModalController, private http: HttpClient, private router: Router) { }
 
-  cerrarModal(){
-  this.modalCtrl.dismiss();
+  cerrarModal() {
+    this.modalCtrl.dismiss();
   }
 
   ngOnInit() {
   }
 
-  LogAdmin(){
+  LogAdmin() {
     const datos = {
       correo: this.email_correo,
       contrasenia: this.pass,
@@ -32,7 +33,9 @@ export class AdminPage implements OnInit {
         console.log('Respuesta del servidor:', response);
         if (response.success) {
           alert('Bienvenido ');
-          this.router.navigate(['/inmobiliariaAdmin']); //Direccion 
+          // Agrega esta línea para guardar idUsuario en localStorage
+          localStorage.setItem('idUsuario', response.idUsuario); 
+          this.router.navigate(['/inmobiliariaAdmin']); // Direccion 
         } else {
           alert('Error: ' + response.message);
         }
@@ -42,10 +45,9 @@ export class AdminPage implements OnInit {
         alert('No se pudo conectar con el servidor');
       }
     );
-    this.email_correo="";
-    this.pass="";
-    
+    this.email_correo = "";
+    this.pass = "";
   }
-  }
+}
 
 

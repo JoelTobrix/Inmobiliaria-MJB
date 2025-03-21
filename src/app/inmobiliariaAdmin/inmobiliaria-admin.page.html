@@ -5,6 +5,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-button>Usuarios</ion-button> <!--Añadir CRUD USUARIOS-->
+  <ion-button> Tipo de propiedad</ion-button>
+  <ion-button>Propiedades</ion-button>
   <!--Atributos-->
   <ion-label>Tipo de propiedad</ion-label>
   <ion-input type="text" [(ngModel)]="type_propetie"></ion-input>
@@ -17,10 +20,17 @@
 
   <ion-label>Imagen</ion-label>
   <ion-item>
-  <input type="file" accept="image/*" (change)="onImageSelected($event)" style="color:black" />
+    <input type="file" accept="image/*" (change)="onImageSelected($event)" style="color:black" />
   </ion-item>
 
-  <ion-button expand="block">Guardar propiedad</ion-button>
+  <!-- Vista previa de la imagen antes de subirla -->
+  <ion-img *ngIf="previewImage" [src]="previewImage" alt="Vista previa" style="width: 100%; max-height: 300px;"></ion-img>
+
+  <!-- Mostrar imagen de la propiedad desde el backend -->
+  <ion-img *ngIf="propiedad" [src]="'http://localhost/inmobiliaria/mostrar_imagen.php?id=' + propiedad.idPropiedad"
+    alt="Imagen de la propiedad" style="width: 100%; max-height: 300px;"></ion-img>
+
+  <ion-button expand="block"(click)="GuardarPropiedad()">Guardar propiedad</ion-button>
   <ion-button expand="block"> Eliminar informacion</ion-button>
   <ion-button expand="block">Eliminar propiedad</ion-button>
 
