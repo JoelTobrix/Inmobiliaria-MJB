@@ -5,9 +5,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button>Usuarios</ion-button> <!--Añadir CRUD USUARIOS-->
-  <ion-button> Tipo de propiedad</ion-button>
-  <ion-button>Propiedades</ion-button>
+  
+  <ion-button> <ion-icon name="people" slot="start"></ion-icon>Usuarios</ion-button> <!--Añadir CRUD USUARIOS-->
+  <ion-button><ion-icon name="home" slot="start"></ion-icon> Tipo de propiedad</ion-button>
+  <ion-button><ion-icon name="business" slot="start"></ion-icon>Propiedades</ion-button>
   <!--Atributos-->
   <ion-label>Tipo de propiedad</ion-label>
   <ion-input type="text" [(ngModel)]="type_propetie"></ion-input>
@@ -30,9 +31,9 @@
   <ion-img *ngIf="propiedad" [src]="'http://localhost/inmobiliaria/mostrar_imagen.php?id=' + propiedad.idPropiedad"
     alt="Imagen de la propiedad" style="width: 100%; max-height: 300px;"></ion-img>
 
-  <ion-button expand="block"(click)="GuardarPropiedad()">Guardar propiedad</ion-button>
-  <ion-button expand="block"> Eliminar informacion</ion-button>
-  <ion-button expand="block">Eliminar propiedad</ion-button>
+  <ion-button expand="block"(click)="GuardarPropiedad()"><ion-icon name="save" slot="start"></ion-icon>Guardar propiedad</ion-button>
+  <ion-button expand="block" (click)="EliminarCasillasPropiedad()"> <ion-icon name="trash" slot="start"></ion-icon> Eliminar informacion</ion-button>
+  <ion-button expand="block"> <ion-icon name="home" slot="start"></ion-icon>Eliminar propiedad</ion-button>
 
 
 </ion-content>

@@ -69,10 +69,22 @@ export class InmobiliariaAdminPage implements OnInit {
         .then(data => {
             if (data.estado) {
                 console.log("Propiedad guardada correctamente");
-            } else {
+               
                 console.error("Error al guardar la propiedad:", data.mensaje);
             }
         })
         .catch(error => console.error("Error en la petición:", error));
+        this.type_propetie="";
+        this.price="";
+        this.location="";
+        this.propiedad="";
+        this.previewImage="";   
+}
+EliminarCasillasPropiedad(){
+                this.type_propetie="";
+                this.price="";
+                this.location="";
+                this.propiedad="";
+                this.previewImage="";
 }
 }
