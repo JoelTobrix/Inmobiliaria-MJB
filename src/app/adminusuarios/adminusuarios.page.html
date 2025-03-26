@@ -1,0 +1,121 @@
+<ion-content [fullscreen]="true" class="ion-padding-horizontal">
+  <!-- Search and filter bar -->
+  <div class="search-container">
+    <ion-searchbar placeholder="Search" class="custom-searchbar"></ion-searchbar>
+    <ion-button fill="outline" class="filter-button">
+      Filter
+      <ion-icon name="filter" slot="end"></ion-icon>
+    </ion-button>
+  </div>
+  
+  <!-- Action buttons -->
+  <div class="action-buttons">
+    <ion-button fill="clear" class="view-button">
+      <ion-icon name="eye-outline"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear" class="edit-button">
+      <ion-icon name="document-text-outline"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear" class="download-button">
+      <ion-icon name="download-outline"></ion-icon>
+    </ion-button>
+  </div>
+  
+  <!-- Table structure -->
+  <div class="table-container">
+    <!-- Table header -->
+    <div class="table-header">
+      <ion-checkbox class="select-all"></ion-checkbox>
+      <ion-button fill="clear" class="sort-button">
+        <ion-icon name="chevron-down-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+      <div class="header-cell">
+        <ion-icon name="person" class="cell-icon"></ion-icon>
+        Usuario
+        <ion-button fill="clear" class="options-button">
+          <ion-icon name="ellipsis-vertical-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </div>
+      <div class="header-cell">
+        <ion-icon name="person" class="cell-icon"></ion-icon>
+        Nombre
+        <ion-button fill="clear" class="options-button">
+          <ion-icon name="ellipsis-vertical-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </div>
+      <div class="header-cell">
+        <ion-icon name="person" class="cell-icon"></ion-icon>
+        Descripcion
+        <ion-button fill="clear" class="options-button">
+          <ion-icon name="ellipsis-vertical-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="header-cell">
+        <ion-icon name="person" class="cell-icon"></ion-icon>
+        Email
+        <ion-button fill="clear" class="options-button">
+          <ion-icon name="ellipsis-vertical-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </div>
+
+
+
+
+
+      <div class="header-cell">
+        <ion-icon name="at-outline" class="cell-icon"></ion-icon>
+      </div>
+    </div>
+    
+    <!-- Empty table rows for structure -->
+    <div class="table-row">
+      <div class="row-number">1</div>
+      <ion-button fill="clear" class="star-button">
+        <ion-icon name="star-outline"></ion-icon>
+      </ion-button>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+    </div>
+    
+    <div class="table-row">
+      <div class="row-number">2</div>
+      <ion-button fill="clear" class="star-button">
+        <ion-icon name="star-outline"></ion-icon>
+      </ion-button>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+    </div>
+    
+    <div class="table-row">
+      <div class="row-number">3</div>
+      <ion-button fill="clear" class="star-button">
+        <ion-icon name="star-outline"></ion-icon>
+      </ion-button>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+    </div>
+    
+    <div class="table-row">
+      <div class="row-number">4</div>
+      <ion-button fill="clear" class="star-button">
+        <ion-icon name="star-outline"></ion-icon>
+      </ion-button>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+    </div>
+  </div>
+  
+  <!-- Add button -->
+  <div class="add-button-container">
+    <ion-button color="primary" shape="round" class="add-button">
+      <ion-icon name="add" slot="start"></ion-icon>
+      Añadir
+    </ion-button>
+    <ion-button><ion-icon name="delete" slot="start">Eliminar</ion-icon></ion-button>
+  </div>
+</ion-content>

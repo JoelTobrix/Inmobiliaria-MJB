@@ -6,7 +6,7 @@
 
 <ion-content [fullscreen]="true">
   
-  <ion-button> <ion-icon name="people" slot="start"></ion-icon>Usuarios</ion-button> <!--Añadir CRUD USUARIOS-->
+  <ion-button [routerLink]="'/adminusuarios'"> <ion-icon name="people" slot="start"></ion-icon>Usuarios</ion-button> <!--Añadir CRUD USUARIOS-->
   <ion-button><ion-icon name="home" slot="start"></ion-icon> Tipo de propiedad</ion-button>
   <ion-button><ion-icon name="business" slot="start"></ion-icon>Propiedades</ion-button>
   <!--Atributos-->
@@ -25,11 +25,11 @@
   </ion-item>
 
   <!-- Vista previa de la imagen antes de subirla -->
-  <ion-img *ngIf="previewImage" [src]="previewImage" alt="Vista previa" style="width: 100%; max-height: 300px;"></ion-img>
+  <ion-img *ngIf="previewImage" [src]="previewImage" alt="Vista previa" style="width: 100%; max-height: 50px;"></ion-img>
 
   <!-- Mostrar imagen de la propiedad desde el backend -->
   <ion-img *ngIf="propiedad" [src]="'http://localhost/inmobiliaria/mostrar_imagen.php?id=' + propiedad.idPropiedad"
-    alt="Imagen de la propiedad" style="width: 100%; max-height: 300px;"></ion-img>
+    alt="Imagen de la propiedad" style="width: 100%; max-height: 50px;"></ion-img>
 
   <ion-button expand="block"(click)="GuardarPropiedad()"><ion-icon name="save" slot="start"></ion-icon>Guardar propiedad</ion-button>
   <ion-button expand="block" (click)="EliminarCasillasPropiedad()"> <ion-icon name="trash" slot="start"></ion-icon> Eliminar informacion</ion-button>

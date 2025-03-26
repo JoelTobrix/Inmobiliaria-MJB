@@ -26,7 +26,11 @@ const routes: Routes = [
   {
     path: 'inmobiliariaAdmin',
     loadChildren: () => import('./inmobiliariaAdmin/inmobiliaria-admin.module').then( m => m.InmobiliariaAdminPageModule)
+  },  {
+    path: 'adminusuarios',
+    loadChildren: () => import('./adminusuarios/adminusuarios.module').then( m => m.AdminusuariosPageModule)
   },
+
 
 ];
 
