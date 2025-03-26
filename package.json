@@ -41,11 +41,10 @@
     "@angular-eslint/eslint-plugin-template": "^19.0.0",
     "@angular-eslint/schematics": "^19.0.0",
     "@angular-eslint/template-parser": "^19.0.0",
-<<<<<<< HEAD
+
     "@angular/cli": "^19.0.0",
-=======
     "@angular/cli": "19.2.5",
->>>>>>> 0e335c1 (Diseño muestra de usuarios)
+
     "@angular/compiler-cli": "^19.0.0",
     "@angular/language-service": "^19.0.0",
     "@capacitor/cli": "7.0.1",

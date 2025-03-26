@@ -58,6 +58,8 @@ pass_password:string="";
         alert('No se pudo conectar con el servidor');
       }
     );
+    this.txt_usuario="";
+    this.pass_password="";
   }
 }
 
